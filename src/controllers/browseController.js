@@ -1,5 +1,6 @@
 const axios=require('axios');
 const cheerio=require('cheerio');
+require('dotenv').config();
 
 exports.browseWord=async(req,res)=>{
     const word=req.params.word;
@@ -33,4 +34,12 @@ exports.browseWord=async(req,res)=>{
         })
     }
     
+}
+
+
+exports.aboutApi=(req,res)=>{
+    res.status(200).json({
+        endpoint:'',
+        source:''
+    })
 }
