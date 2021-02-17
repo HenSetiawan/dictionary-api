@@ -4,7 +4,6 @@ require('dotenv').config();
 
 exports.browseWord=async(req,res)=>{
     const word=req.params.word;
-    console.log(word);
     try {
         const response=await axios(`https://www.dictionary.com/browse/${word}`);
         const $=cheerio.load(response.data)
@@ -38,8 +37,12 @@ exports.browseWord=async(req,res)=>{
 
 
 exports.aboutApi=(req,res)=>{
+    endpoint=process.env.ENDPOINT;
+    source=process.env.SOURCE;
+    example=process.env.EXAMPLE
     res.status(200).json({
-        endpoint:'',
-        source:''
+        endpoint,
+        source,
+        example
     })
 }
